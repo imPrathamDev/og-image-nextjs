@@ -47,7 +47,7 @@ export default async function handler(
 
     let page = await browser.newPage();
     await page.setViewport({ width: 0, height: 0 });
-    await page.goto(url, { waitUntil: "networkidle2" });
+    await page.goto(url);
 
     result = await page.screenshot({
       //   quality: 50,
