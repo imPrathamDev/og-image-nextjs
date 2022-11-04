@@ -26,9 +26,7 @@ async function getBrowserInstance() {
   }
 
   return chromium.puppeteer.launch({
-    args: [
-      "--start-maximized", // you can also use '--start-fullscreen'
-    ],
+    args: chromium.args,
     // defaultViewport: chromium.defaultViewport,
     executablePath,
     headless: chromium.headless,
