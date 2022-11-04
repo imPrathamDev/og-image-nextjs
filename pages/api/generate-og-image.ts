@@ -18,6 +18,7 @@ async function getBrowserInstance() {
     const puppeteer = require("puppeteer");
     return puppeteer.launch({
       args: [
+        ...chromium.args,
         "--start-maximized", // you can also use '--start-fullscreen'
       ],
       headless: chromium.headless,
@@ -26,7 +27,7 @@ async function getBrowserInstance() {
   }
 
   return chromium.puppeteer.launch({
-    args: chromium.args,
+    args: [...chromium.args, "--start-maximized"],
     // defaultViewport: chromium.defaultViewport,
     executablePath,
     headless: chromium.headless,
@@ -47,7 +48,7 @@ export default async function handler(
 
     let page = await browser.newPage();
     await page.setViewport({ width: 0, height: 0 });
-    await page.goto(url);
+    await page.goto(url, { waitUntil: "networkidle2" });
 
     result = await page.screenshot({
       //   quality: 50,
