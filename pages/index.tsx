@@ -10,7 +10,7 @@ interface HomeProps {
   imageURL: string;
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticS: GetServerSideProps = async (context) => {
   const { title, desc, price, discPrice, imageURL } = context.query;
   return {
     props: {

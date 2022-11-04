@@ -17,15 +17,19 @@ async function getBrowserInstance() {
   if (!executablePath) {
     const puppeteer = require("puppeteer");
     return puppeteer.launch({
-      args: chromium.args,
+      args: [
+        "--start-maximized", // you can also use '--start-fullscreen'
+      ],
       headless: chromium.headless,
       ignoreHTTPSErrors: true,
     });
   }
 
   return chromium.puppeteer.launch({
-    args: chromium.args,
-    defaultViewport: chromium.defaultViewport,
+    args: [
+      "--start-maximized", // you can also use '--start-fullscreen'
+    ],
+    // defaultViewport: chromium.defaultViewport,
     executablePath,
     headless: chromium.headless,
     ignoreHTTPSErrors: true,
@@ -44,14 +48,19 @@ export default async function handler(
     browser = await getBrowserInstance();
 
     let page = await browser.newPage();
+    await page.setViewport({ width: 0, height: 0 });
+    await page.goto(url, { waitUntil: "networkidle2" });
 
-    await page.goto(url);
-
-    result = await page.screenshot();
+    result = await page.screenshot({
+      //   quality: 50,
+      fullPage: true,
+      //   encoding: "base64",
+    });
     res.setHeader("Content-Type", "image/png");
     res.send(result);
     // return res.json({ status: true, result });
   } catch (error) {
+    res.json({ status: false, error });
     // return callback(error);
   } finally {
     if (browser !== null) {
