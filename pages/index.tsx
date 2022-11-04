@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 
 interface HomeProps {
   title: string;
@@ -30,46 +31,51 @@ export default function Home({
   imageURL,
 }: HomeProps) {
   return (
-    <main className="h-screen w-screen p-24">
-      <section className="flex">
-        <div className="w-3/4">
-          <Image
-            src={"/logo-transparent-black.png"}
-            alt="Reale"
-            width={160}
-            height={50}
-            className="-ml-4 mb-2"
-          />
-          <h1 className="text-primary-black text-6xl font-Cinzel uppercase">
-            {title}
-          </h1>
-          <p className="max-w-2xl my-6">{desc}</p>
-
-          <div className="flex gap-x-2 items-baseline font-Cinzel font-semibold">
-            <span className="text-primary text-4xl">₹{discPrice}</span>
-            <span className="text-3xl text-gray-600 line-through">
-              ₹{price}
-            </span>
-          </div>
-
-          <h2 className="font-Cinzel font-medium text-3xl uppercase mt-6 text-primary">
-            Shop Today On Reale Gioielleria.
-          </h2>
-
-          <p className="mb-4">With free shiping all over the India.</p>
-        </div>
-        <div className="w-1/4">
-          <div className="mt-12">
+    <>
+      <Head>
+        <title>OG Image</title>
+      </Head>
+      <main className="h-screen w-screen p-24">
+        <section className="flex">
+          <div className="w-3/4">
             <Image
-              src={imageURL}
-              alt={"Image"}
-              width={700}
-              height={700}
-              className="rounded-md scale-125"
+              src={"/logo-transparent-black.png"}
+              alt="Reale"
+              width={160}
+              height={50}
+              className="-ml-4 mb-2"
             />
+            <h1 className="text-primary-black text-6xl font-Cinzel uppercase">
+              {title}
+            </h1>
+            <p className="max-w-2xl my-6">{desc}</p>
+
+            <div className="flex gap-x-2 items-baseline font-Cinzel font-semibold">
+              <span className="text-primary text-4xl">₹{discPrice}</span>
+              <span className="text-3xl text-gray-600 line-through">
+                ₹{price}
+              </span>
+            </div>
+
+            <h2 className="font-Cinzel font-medium text-3xl uppercase mt-6 text-primary">
+              Shop Today On Reale Gioielleria.
+            </h2>
+
+            <p className="mb-4">With free shiping all over the India.</p>
           </div>
-        </div>
-      </section>
-    </main>
+          <div className="w-1/4">
+            <div className="mt-12">
+              <Image
+                src={imageURL}
+                alt={"Image"}
+                width={700}
+                height={700}
+                className="rounded-md scale-125"
+              />
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
   );
 }
