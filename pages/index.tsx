@@ -10,8 +10,16 @@ interface HomeProps {
   imageURL: string;
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { title, desc, price, discPrice, imageURL } = context.query;
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  res,
+  query,
+}) => {
+  const { title, desc, price, discPrice, imageURL } = query;
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=59"
+  );
   return {
     props: {
       title,

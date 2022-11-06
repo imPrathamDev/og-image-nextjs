@@ -18,14 +18,11 @@ export default async function handler(
       // await context.route("**.jpg", (route) => route.abort());
       await page.goto(url);
 
-      const result = await page.screenshot({ fullPage: true });
+      //   const result = await page.screenshot({ fullPage: true });
+      const result = await page.pdf();
 
       // res.json({ status: true, result: result.toString("base64") });
-      res.setHeader("Content-Type", "image/png");
-      res.setHeader(
-        "Cache-Control",
-        "public, s-maxage=10, stale-while-revalidate=59"
-      );
+      res.setHeader("Content-Type", "application/pdf");
       res.send(result);
 
       await context.close();
@@ -44,16 +41,12 @@ export default async function handler(
       const page = await context.newPage();
       await page.goto(url);
 
-      const result = await page.screenshot({ fullPage: true });
+      //   const result = await page.screenshot({ fullPage: true });
+      await page.pdf({ path: `document.pdf` });
 
       // res.json({ status: true, result: result.toString("base64") });
-
-      res.setHeader("Content-Type", "image/png");
-      res.setHeader(
-        "Cache-Control",
-        "public, s-maxage=10, stale-while-revalidate=59"
-      );
-      res.send(result);
+      //   res.setHeader("Content-Type", "image/png");
+      //   res.send(result);
     } catch (error) {
       throw error;
     } finally {
