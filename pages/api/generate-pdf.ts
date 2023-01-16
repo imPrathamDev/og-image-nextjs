@@ -5,8 +5,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { title, desc, imageURL, price, discPrice } = req.query;
-  const url = `https://og-image-nextjs.vercel.app?title=${title}&desc=${desc}&price=${price}&discPrice=${discPrice}&imageURL=${imageURL}`;
+  // const url = `https://og-image-nextjs.vercel.app/invoice`;
+  const url = `http://localhost:3001/invoice`;
 
   if (process.env.PRODUCTION == "false") {
     const playwright = require("playwright");

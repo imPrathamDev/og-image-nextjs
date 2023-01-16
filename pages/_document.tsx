@@ -28,7 +28,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body className="font-Montserrat text-base text-primary-black bg-primary-white">
+        <body className="font-Montserrat text-base text-primary-black">
           <Main />
           <NextScript />
         </body>
