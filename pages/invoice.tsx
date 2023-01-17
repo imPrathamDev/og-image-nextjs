@@ -69,9 +69,9 @@ const Invoice = () => {
             <span className="text-xs">At 2:25:08 am, on August 18th 2022</span>
           </div>
         </div>
-        <div className="w-full h-0.5 bg-gray-300 rounded-full my-6"></div>
+        {/* <div className="w-full h-0.5 bg-gray-300 rounded-full my-6"></div> */}
 
-        <div className="px-2 py-1 bg-gray-200 rounded-md my-2">
+        <div className="px-2 py-4 border-y-2 border-gray-200 my-2">
           <table className="w-full">
             <thead className="text-base">
               <tr className="text-left">
@@ -120,7 +120,7 @@ const Invoice = () => {
           </table>
         </div>
 
-        <div className="w-full h-0.5 bg-gray-300 rounded-full my-6"></div>
+        {/* <div className="w-full h-0.5 bg-gray-300 rounded-full my-6"></div> */}
 
         <div className="mt-4 flex justify-end">
           <div className="w-1/2">
@@ -155,9 +155,9 @@ const Invoice = () => {
           </div>
         </div>
       </main>
-      <footer className="">
-        <div className="w-full h-0.5 bg-gray-200 rounded-full my-6"></div>
-        <div className="">
+      <footer className="border-t-2 border-gray-200">
+        {/* <div className="w-full h-0.5 bg-gray-200 rounded-full my-6"></div> */}
+        <div className="mt-2">
           <p className="text-gray-500 text-sm">
             Payment terms are 14 days. Please be aware that according to the
             Late Payment of Unwrapped Debts Act 0000, freelancers are entitled
