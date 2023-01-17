@@ -1,5 +1,6 @@
 // import playwright from "playwright-aws-lambda";
 import type { NextApiRequest, NextApiResponse } from "next";
+import fs from "fs";
 
 export default async function handler(
   req: NextApiRequest,
@@ -18,11 +19,15 @@ export default async function handler(
       await page.goto(url);
 
       //   const result = await page.screenshot({ fullPage: true });
-      const result = await page.pdf();
+      await page.pdf({ path: `invoice.pdf` });
 
       // res.json({ status: true, result: result.toString("base64") });
-      res.setHeader("Content-Type", "application/pdf");
-      res.send(result);
+      // res.setHeader("Content-Type", "application/pdf");
+      // res.send(result);
+
+      const file = fs.readFileSync("./invoice.pdf");
+      res.setHeader("Content-type", "application/pdf");
+      res.send(file);
 
       await context.close();
       await browser.close();
