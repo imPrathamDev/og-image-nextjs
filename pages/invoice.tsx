@@ -3,7 +3,7 @@ import React from "react";
 
 const Invoice = () => {
   return (
-    <div className="bg-primary-white mx-auto py-4 px-8 h-full flex flex-col justify-between">
+    <div className="bg-primary-white mx-auto py-4 px-8 h-[3300px] flex flex-col justify-between">
       <header className="flex items-center justify-between">
         <div>
           <h1 className="font-Cinzel text-2xl font-semibold">Invoice #0472</h1>
