@@ -46,8 +46,10 @@ export default async function handler(
       await page.goto(url);
 
       //   const result = await page.screenshot({ fullPage: true });
-      await page.pdf({ path: `document.pdf` });
+      const result = await page.pdf();
 
+      res.setHeader("Content-type", "application/pdf");
+      res.send(result);
       // res.json({ status: true, result: result.toString("base64") });
       //   res.setHeader("Content-Type", "image/png");
       //   res.send(result);
