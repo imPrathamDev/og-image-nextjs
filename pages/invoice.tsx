@@ -136,7 +136,7 @@ const Invoice = () => {
                 <span className="">₹2999</span>
               </div>
               <div className="flex items-center justify-between my-2">
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-2">
                   <span className="font-bold">Discount</span>
                   <span className="px-1 py-0.5 text-xs font-semibold rounded-full border border-gray-200">
                     OFF500
