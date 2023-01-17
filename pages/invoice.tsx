@@ -3,7 +3,7 @@ import React from "react";
 
 const Invoice = () => {
   return (
-    <div className="bg-primary-white mx-auto py-4 px-8">
+    <div className="bg-primary-white mx-auto py-4 px-8 h-full flex flex-col justify-between">
       <header className="flex items-center justify-between">
         <div>
           <h1 className="font-Cinzel text-2xl font-semibold">Invoice #0472</h1>
@@ -26,44 +26,39 @@ const Invoice = () => {
       </header>
       <main className="my-8">
         <div className="flex justify-between">
-          <div className="flex gap-2">
-            <div className="">
-              <h2 className="text-base font-bold">Shipping address</h2>
-              <span className="font-bold text-sm text-gray-600">
-                Pratham Sharma
-              </span>
-              <br />
-              <span className="text-xs max-w-xs">
-                4/238 N.E.B. Housing Board, Behind Krishi Mandi, Behind Krishi
-                Mandi, Alwar 301001, Rajasthan
-              </span>
-              <br />
-              <span className="text-xs">
-                <span className="font-bold">Phone: </span>
-                +917767678
-              </span>
-            </div>
-            <div className="">
-              <h2 className="text-base font-bold">Billing address</h2>
-              <span className="font-bold text-sm text-gray-600">
-                Pratham Sharma
-              </span>
-              <br />
-              <span className="text-xs max-w-xs">
-                4/238 N.E.B. Housing Board, Behind Krishi Mandi, Behind Krishi
-                Mandi, Alwar 301001, Rajasthan
-              </span>
-              <br />
-              <span className="text-xs">
-                <span className="font-bold">Phone: </span>
-                +917767678565
-              </span>
-            </div>
+          <div className="max-w-xs">
+            <h2 className="text-base font-bold">Shipping address</h2>
+            <span className="font-bold text-sm text-gray-600">
+              Pratham Sharma
+            </span>
+            <br />
+            <span className="text-xs">
+              4/238 N.E.B. Housing Board, Behind Krishi Mandi, Behind Krishi
+              Mandi, Alwar 301001, Rajasthan
+            </span>
+            <br />
+            <span className="text-xs">
+              <span className="font-bold">Phone: </span>
+              +917767678
+            </span>
           </div>
-        </div>
-        <div className="w-full h-0.5 bg-gray-300 rounded-full my-4"></div>
-        <div className="flex gap-1 my-4">
-          <div className="">
+          <div className="max-w-xs">
+            <h2 className="text-base font-bold">Billing address</h2>
+            <span className="font-bold text-sm text-gray-600">
+              Pratham Sharma
+            </span>
+            <br />
+            <span className="text-xs">
+              4/238 N.E.B. Housing Board, Behind Krishi Mandi, Behind Krishi
+              Mandi, Alwar 301001, Rajasthan
+            </span>
+            <br />
+            <span className="text-xs">
+              <span className="font-bold">Phone: </span>
+              +917767678565
+            </span>
+          </div>
+          <div className="max-w-xs">
             <h2 className="text-base font-bold">Payment Details</h2>
             <span className="text-sm text-gray-600">DEBIT CARD</span>
             <br />
@@ -74,6 +69,7 @@ const Invoice = () => {
             <span className="text-xs">At 2:25:08 am, on August 18th 2022</span>
           </div>
         </div>
+        <div className="w-full h-0.5 bg-gray-300 rounded-full my-6"></div>
 
         <div className="px-2 py-1 bg-gray-200 rounded-md my-2">
           <table className="w-full">
@@ -124,6 +120,8 @@ const Invoice = () => {
           </table>
         </div>
 
+        <div className="w-full h-0.5 bg-gray-300 rounded-full my-6"></div>
+
         <div className="mt-4 flex justify-end">
           <div className="w-1/2">
             <div className="flex items-center justify-between my-2">
@@ -157,6 +155,22 @@ const Invoice = () => {
           </div>
         </div>
       </main>
+      <footer className="">
+        <div className="w-full h-0.5 bg-gray-200 rounded-full my-6"></div>
+        <div className="">
+          <p className="text-gray-500 text-sm">
+            Payment terms are 14 days. Please be aware that according to the
+            Late Payment of Unwrapped Debts Act 0000, freelancers are entitled
+            to claim a 00.00 late fee upon non-payment of debts after this time,
+            at which point a new invoice will be submitted with the addition of
+            this fee. If payment of the revised invoice is not received within a
+            further 14 days, additional interest will be charged to the overdue
+            account and a statutory rate of 8% plus Bank of England base of
+            0.5%, totalling 8.5%. Parties cannot contract out of the Act’s
+            provisions.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
