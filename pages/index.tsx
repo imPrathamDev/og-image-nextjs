@@ -59,9 +59,9 @@ export default function Home({
             <p className="max-w-2xl my-6">{desc}</p>
 
             <div className="flex gap-x-2 items-baseline font-Cinzel font-semibold">
-              <span className="text-primary text-4xl">₹{discPrice}</span>
+              <span className="text-primary text-4xl">&#8377;{discPrice}</span>
               <span className="text-3xl text-gray-600 line-through">
-                ₹{price}
+                &#8377;{price}
               </span>
             </div>
 
